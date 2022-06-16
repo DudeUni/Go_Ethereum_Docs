@@ -3,7 +3,6 @@
 This serves as a memo about what is exactly done.
 
 Most of the codes are running on the following machine:
-> IP: phz8005.phys.ust.hk 
 >  
 > system OS: 
 >> NAME="Ubuntu"                                     
