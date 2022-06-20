@@ -32,6 +32,13 @@ contract TokenContractMarket {
         }
     }
     
+    // increase the balance of a kind of coin (provide additional coins to the requesting shop)
+    function addShopBalance(string memory _tokenBrand, uint _amount) public {
+        if (tokenContractMarket[_tokenBrand].isRegistered == true) {
+            tokenContractMarket[_tokenBrand].token.addShopBalance(_amount);
+        }
+    }
+    
     function mintToken(string memory _tokenBrand, address _owner, uint _amount) public {
         // check if that token has been registered to exist in this market and whether requester == owner
         if (tx.origin == _owner && tokenContractMarket[_tokenBrand].isRegistered == true) {
