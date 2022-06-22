@@ -1,8 +1,45 @@
 # This serves as a reminder of the current state of the prototype. 
 
 
+
+**Checklist**
+=====================
+<!-- add to do list here  -->
+
+## The App(Customer) should have/be able to ...
+- [ ] Create Account
+- [ ] Verify account (Log in/out)
+- [ ] View Account information
+- [ ] View Token, and its Metadata
+- [ ] Buy Token with Cash/E-payment
+- [ ] QR code support
+- [ ] Social Networks (Add Other Accounts)
+
+
+## A Business owner should be able to ...
+- [ ] Publish a Token
+- [ ] Set the metadata of the Token
+- [ ] Receive Sales money
+
+## Server should realize ...
+- [ ] Proof-of-Authority (?)
+- [ ] Store Token Metadata 
+- [ ] Digital Payments: Credit Cards/Octopus/Alipay...
+- [ ] Portal: News/Sales Information
+- [ ] Admin function (?)
+- [ ] Social Networks
+- [ ] Generate statistics
+
+## Contracts 
+- [ ] Create Token
+- [ ] View Balance
+- [ ] Transfer Token
+  
+
+
+
 **Q&A**
-=======================================================
+=====================================================
 
 
 
@@ -10,7 +47,7 @@
 
 - Who has the access to the server/ How to access the server?
     
-    >The server is running on `localhost:<port 0>` of the workstation. Anyone who has accounts on the workstation can access the server. This is also forwarded to `<port1>` of `Office Computer A`. It can then be accessed by `<ip of A>:<port1>`. 
+    >The server is running on `localhost:<port 0>` of the workstation. Anyone who has accounts on the workstation can access the server. This is also forwarded to `<port1>` of `Office Computer A`. 
 
 - How can/cannot the server be found by other Ethereum nodes?
 
@@ -33,33 +70,3 @@
 
 - How customers can use our App? 
    > They can buy/sell/ coupons published in our platforms. They can also trade/exchange between each other.
-
-
-
-**Checklist**
-=====================
-<!-- add to do list here  -->
-
-
-## Server
-- [ ] Store Token Metadata
-- [ ] Digital Payments: Credit Cards/Octopus/Alipay...
-- [ ] Portal: News/Sales Information
-- [ ] Admin function (?)
-- [ ] Social Networks
-- [ ] Generate statistics
-
-## Contracts
-- [x] Create Token
-- [x] View Balance
-- [ ] Transfer Token
-  
-
-## App
-- [x] View Account information
-- [ ] View Token Metadata
-- [ ] Set up accounts
-- [ ] Buy/Transfer Token 
-- [ ] Social Networks
-
-## Customer/Business
