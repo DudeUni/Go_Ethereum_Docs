@@ -7,33 +7,43 @@
 <!-- add to do list here  -->
 
 ## The App(Customer) should have/be able to ...
-- [ ] Create Account
+- [ ] Create account
 - [ ] Verify account (Log in/out)
-- [ ] View Account information
-- [ ] View Token, and its Metadata
-- [ ] Buy Token with Cash/E-payment
+- [ ] View account information
+- [ ] View token, and its metadata
+- [ ] Buy token with cash/E-payment (receive token)
+- [ ] Use token (buy with token)
+- [ ] Trade between users 
 - [ ] QR code support
-- [ ] Social Networks (Add Other Accounts)
+- [ ] Social networks (Add Other Accounts)
 
 
 ## A Business owner should be able to ...
-- [ ] Publish a Token
-- [ ] Set the metadata of the Token
-- [ ] Receive Sales money
+- [ ] Publish a token
+- [ ] Set the metadata of the token
+- [ ] Receive dales money
 
-## Server should realize ...
+## Server(Blockchain) should realize ...
 - [ ] Proof-of-Authority (?)
-- [ ] Store Token Metadata 
-- [ ] Digital Payments: Credit Cards/Octopus/Alipay...
-- [ ] Portal: News/Sales Information
+- [ ] Call smart contract
+- [ ] Create token
+- [ ] Transfer token
 - [ ] Admin function (?)
-- [ ] Social Networks
-- [ ] Generate statistics
+- [ ] Multiple ledger (as backup)
 
 ## Contracts 
 - [ ] Create Token
 - [ ] View Balance
 - [ ] Transfer Token
+
+## Server(Conventional) should realize...
+- [ ] Store token metadata
+- [ ] Digital payments: credit cards/Octopus/Alipay...
+- [ ] Marketplace
+- [ ] Generate statistics
+- [ ] Manage accounts(User info/verification/password...)
+- [ ] Social networks
+
   
 
 
@@ -55,7 +65,7 @@
 
 - What is the consensus mechanism?
     
-    >Currently, it is PoW with only 1 node.
+    >Currently, it is PoW with only 1 node. Later it will be changed to PoA.
 
 
 ## App
