@@ -17,6 +17,7 @@ import "./Token.sol";
     - data type (uint for ids, int for balances)
     - variables / functions accessibility
     - further checking / verification during function calls
+    - notification event when balance = 0
  */
 contract TokenMarket {
 
