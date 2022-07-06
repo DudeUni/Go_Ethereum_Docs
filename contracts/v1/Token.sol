@@ -13,6 +13,7 @@ pragma solidity ^0.8.0;
     - data type (uint for ids, int for balances)
     - variables / functions accessibility
     - further checking / verification during function calls
+    - notification event when balance = 0
 */
 contract Token {
 
