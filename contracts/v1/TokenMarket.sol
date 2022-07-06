@@ -16,6 +16,7 @@ import "./Token.sol";
     - copyright license choice
     - data type (uint for ids, int for balances)
     - variables / functions accessibility
+    - further checking / verification during function calls
  */
 contract TokenMarket {
 
