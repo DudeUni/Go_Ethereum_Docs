@@ -12,16 +12,15 @@ pragma solidity ^0.8.0;
     - copyright license choice
     - data type (uint for ids, int for balances)
     - variables / functions accessibility
-    - further checking / verification during function calls
+    - more verification during function calls
     - notification event when balance = 0
 */
 contract Token {
 
     string      private     name;
     string      private     symbol;
-    uint        private     contractId;
     uint        private     numTransaction;
-    address     private     market;
+    address     private     businessWalletAddress;
 
     int constant private customerLimit = 1000;
 
@@ -29,21 +28,22 @@ contract Token {
 
     /**
         @notice contractor function: deploying a "Token" contract for a business
-        @param _name        name of business
-        @param _symbol      symbol of business
-        @param _contractId  ID for business (to recognize the contract)
+        @param _name name of business
+        @param _symbol symbol of business
+        @param _businessWalletAddress wallet address of business
      */
-    constructor(string memory _name, string memory _symbol, uint _contractId)
+    constructor(string memory _name, string memory _symbol, address _businessWalletAddress)
     {
-        require(isContract(msg.sender));
+        require(isContract(msg.sender) == true);
+        require(isContract(tx.origin) == false);
+        require(_businessWalletAddress == tx.origin);
 
         name        = _name;
         symbol      = _symbol;
-        contractId  = _contractId;
 
         numTransaction = 0;
 
-        market = msg.sender;
+        businessWalletAddress = _businessWalletAddress;
     }
 
     /**
@@ -61,12 +61,10 @@ contract Token {
     function getName()         public view returns (string memory) { return name; }
     /// @notice return symbol of business
     function getSymbol()       public view returns (string memory) { return symbol; }
-    /// @notice return contract ID of business
-    function getContractId()   public view returns (uint)          { return contractId; }
     /// @notice return number of transactions called by business
     function getNumTransact()  public view returns (uint)          { return numTransaction; }
     /// @notice return the address of "TokenMarket" contract that deploys "Token" contract for this business
-    function getMarketAddr()   public view returns (address)       { return market; }
+    function getBusinessAddr() public view returns (address)       { return businessWalletAddress; }
 
     /**
         @notice return balance of the specified customer
@@ -75,6 +73,7 @@ contract Token {
     function getBalanceOf(uint _customerId) public view returns (int)
     {
         // require();
+        require(tx.origin == businessWalletAddress);
 
         return balances[_customerId];
     }
@@ -89,10 +88,11 @@ contract Token {
     function topUp(uint _customerId, int _amount) public returns (bool)
     {        
         // require();
+        require(tx.origin == businessWalletAddress);
         require(_amount > 0);
 
-        if (balances[_customerId] + _amount < balances[_customerId]) return false;
-        if (balances[_customerId] + _amount > customerLimit) return false;
+        require(balances[_customerId] + _amount >= balances[_customerId]);
+        require(balances[_customerId] + _amount <= customerLimit);
 
         balances[_customerId] += _amount;
 
@@ -111,12 +111,15 @@ contract Token {
     function payToShop(uint _customerId, int _amount) public returns (bool)
     {
         // require();
+        require(tx.origin == businessWalletAddress);
         require(_amount > 0);
 
-        if (balances[_customerId] - _amount > balances[_customerId]) return false;
-        if (balances[_customerId] - _amount < 0) return false;
+        require(balances[_customerId] - _amount <= balances[_customerId]);
+        require(balances[_customerId] - _amount >= 0);
 
         balances[_customerId] -= _amount;
+
+        // emit notification if balance == 0
 
         ++numTransaction;
 
